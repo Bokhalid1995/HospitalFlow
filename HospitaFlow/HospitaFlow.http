@@ -1,0 +1,6 @@
+@HospitaFlow_HostAddress = http://localhost:5062
+
+GET {{HospitaFlow_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
