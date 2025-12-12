@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitaFlow.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,10 +13,13 @@ namespace HospitaFlow.Core.Entities.Application
         public int Id { get; set; }
         public string FullName { get; set; } = string.Empty;
         public DateTime BirthDate { get; set; }
-        public string Gender { get; set; } = string.Empty;
+        public GenderEnum Gender { get; set; }
 
         public string NationalId { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
 
         // Navigation
         public MedicalRecord MedicalRecord { get; set; }

@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
-using HospitaFlow.Application.Common.Constants;
+using HospitaFlow.Application.Common.Exceptions;
 using HospitaFlow.Application.Common.Responses;
 using HospitaFlow.Application.DTOs.Application.PatientFile;
 using HospitaFlow.Application.Interfaces.Application;
 using HospitaFlow.Application.Interfaces.Common;
+using HospitaFlow.Application.Sahred.Constants;
 using HospitaFlow.Core.Entities.Application;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HospitaFlow.Application.Features.Application.PatientFileFeature.Commands
 {
@@ -23,7 +20,7 @@ namespace HospitaFlow.Application.Features.Application.PatientFileFeature.Comman
             var entity = await unitOfWork.PatientFiles.GetByIdAsync(request.Id);
             if (entity == null)
             {
-                 throw new GlobalException(MessagesConstants.NoDataWithID);
+                 throw new NotFoundException(MessagesConstants.NoDataWithID);
             }
 
             mapper.Map(request.PatientFile, entity);

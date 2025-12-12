@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
-using HospitaFlow.Application.Common.Constants;
+using HospitaFlow.Application.Common.Exceptions;
 using HospitaFlow.Application.Common.Responses;
 using HospitaFlow.Application.DTOs.Application.PatientFile;
 using HospitaFlow.Application.Interfaces.Application;
+using HospitaFlow.Application.Sahred.Constants;
 using HospitaFlow.Core.Entities.Application;
 using MediatR;
 using System;
@@ -21,7 +22,7 @@ namespace HospitaFlow.Application.Features.Application.PatientFileFeature.Querie
             var result = await patientFileRepository.GetByIdAsync(request.patientId);
             if (result == null)
             {
-                return Result<PatientFileDto>.Fail(MessagesConstants.NoDataWithID);
+                throw new NotFoundException(MessagesConstants.NoDataWithID);
             }
             
             var data = mapper.Map<PatientFileDto>(result);
