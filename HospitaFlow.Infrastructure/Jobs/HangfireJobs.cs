@@ -22,11 +22,11 @@ namespace HospitaFlow.Infrastructure.Jobs
 
         public void ConfigureRecurringJobs()
         {
-            _recurringJobManager.AddOrUpdate(
-                "send-test-email",
-                () => SendTestEmail(),
-                Cron.MinuteInterval(5) // Every 5 minutes
-            );
+            //_recurringJobManager.AddOrUpdate(
+            //    "send-test-email",
+            //    () => SendTestEmail(),
+            //    Cron.MinuteInterval(5) // Every 5 minutes
+            //);
         }
 
         public async Task SendTestEmail()

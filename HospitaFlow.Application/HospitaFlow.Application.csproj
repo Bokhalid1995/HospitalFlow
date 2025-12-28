@@ -23,8 +23,8 @@
     <Folder Include="Common\Helpers\" />
     <Folder Include="DTOs\Billing\" />
     <Folder Include="DTOs\Lookups\" />
-    <Folder Include="Features\Lookups\" />
     <Folder Include="Features\Billing\" />
+    <Folder Include="Features\Lookups\" />
     <Folder Include="Interfaces\Billing\" />
     <Folder Include="Interfaces\Lookups\" />
   </ItemGroup>

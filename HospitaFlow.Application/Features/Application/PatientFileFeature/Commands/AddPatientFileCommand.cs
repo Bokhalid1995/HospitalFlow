@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HospitaFlow.Application.Common.Exceptions;
 using HospitaFlow.Application.Common.Responses;
 using HospitaFlow.Application.DTOs.Application.PatientFile;
 using HospitaFlow.Application.Interfaces.Application;
@@ -22,7 +23,7 @@ namespace HospitaFlow.Application.Features.Application.PatientFileFeature.Comman
             var result = await unitOfWork.SaveChangesAsync();
             if (result == 0)
             {
-                return Result<PatientFile>.Fail(MessagesConstants.CreateFail);
+                throw new BusinessException(MessagesConstants.CreateFail);
             }
             // Send welcome email
             await emailService.SendEmailAsync(entity.Email, "مرحبا بك عميلنا المميز", "تم فتح ملف خاص بك بالمستشفى بنجاح");

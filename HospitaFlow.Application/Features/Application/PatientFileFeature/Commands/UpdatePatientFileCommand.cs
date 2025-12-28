@@ -29,7 +29,7 @@ namespace HospitaFlow.Application.Features.Application.PatientFileFeature.Comman
             var saved = await unitOfWork.SaveChangesAsync();
             if (saved == 0)
             {
-                return Result<PatientFile>.Fail(MessagesConstants.UpdateFail);
+                throw new BusinessException(MessagesConstants.UpdateFail);
             }
        
             return Result<PatientFile>.Done(entity , MessagesConstants.DataUpdated);

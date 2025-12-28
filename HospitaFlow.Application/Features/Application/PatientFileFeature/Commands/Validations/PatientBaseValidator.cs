@@ -29,9 +29,11 @@ namespace HospitaFlow.Application.Features.Application.PatientFileFeature.Comman
 
             RuleFor(x => getDto(x).City)
                 .NotEmpty().WithMessage(MessagesConstants.Required);
+
             RuleFor(x => getDto(x).NationalId)
                 .NotEmpty().WithMessage(MessagesConstants.Required)
                 .Matches(@"^[0-9]{14}$").WithMessage(MessagesConstants.InvalidNationalId);
+
             RuleFor(x => getDto(x).Gender)
                 .IsInEnum().WithMessage(MessagesConstants.InvalidGender);
         }
